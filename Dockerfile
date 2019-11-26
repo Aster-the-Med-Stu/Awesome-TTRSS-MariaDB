@@ -11,6 +11,7 @@ RUN chmod -x /wait-for.sh && apk add --update --no-cache nginx s6 curl \
   php7 php7-intl php7-fpm php7-cli php7-curl php7-fileinfo \
   php7-mbstring php7-gd php7-json php7-dom php7-pcntl php7-posix \
   php7-pgsql php7-mcrypt php7-session php7-pdo php7-pdo_pgsql \
+  php7-mysqli php7-pdo_mysql \
   ca-certificates && rm -rf /var/cache/apk/*
 
 # Add ttrss nginx config
@@ -47,6 +48,9 @@ ADD https://github.com/levito/tt-rss-feedly-theme/archive/master.tar.gz /var/www
 
 ## RSSHub
 ADD https://github.com/DIYgod/ttrss-theme-rsshub/archive/master.tar.gz /var/www/themes/rsshub/
+
+## Reeder
+ADD https://github.com/tschinz/tt-rss_reeder_theme/archive/master.tar.gz /var/www/themes/reeder
 
 # Install ttrss and patch configuration
 WORKDIR /var/www
